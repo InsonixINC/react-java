@@ -46,7 +46,7 @@ public class EmployeeController {
 	}
 
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Employee> getEmployee(@PathVariable("id") Long id) {
 		Employee employee = empService.getById(id);
 		if (employee == null) {
@@ -60,7 +60,7 @@ public class EmployeeController {
 
 	@RequestMapping(value="/list",method = RequestMethod.GET)
 	public ResponseEntity<List<Employee>> getAllEmployees() {
-		List<Employee> employees = empService.getAll();
+		List<Employee> employees = empService.findAllByDesc();
 		if (employees.isEmpty()) {
 			System.out.println("Employees does not exists");
 			return new ResponseEntity<List<Employee>>(HttpStatus.NO_CONTENT);

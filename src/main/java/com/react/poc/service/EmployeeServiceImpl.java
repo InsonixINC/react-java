@@ -35,4 +35,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeRepository.delete((Long) id);
 	}
 
+	@Override
+	public List<Employee> findAllByDesc() {
+		return employeeRepository.findAllByDesc();
+	}
+
 }
